@@ -1,0 +1,59 @@
+name: validate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  plugin-validate:
+    name: claude plugin validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Claude Code CLI
+        run: |
+          curl -fsSL https://code.claude.com/install.sh | sh
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Validate marketplace
+        run: claude plugin validate --marketplace .claude-plugin/marketplace.json
+
+      - name: Validate plugin
+        run: claude plugin validate --plugin plugins/autonomous-dev-loop
+
+      - name: Check templates parse
+        run: |
+          for f in plugins/autonomous-dev-loop/templates/*.tmpl plugins/autonomous-dev-loop/templates/guidelines/*.md; do
+            [[ -s "$f" ]] || { echo "empty template: $f" >&2; exit 1; }
+          done
+
+      - name: Check skill frontmatter
+        run: |
+          missing=0
+          for f in plugins/autonomous-dev-loop/skills/*/SKILL.md; do
+            grep -q '^description:' "$f" || { echo "missing description: $f" >&2; missing=1; }
+          done
+          exit $missing
+
+      - name: Check agent frontmatter
+        run: |
+          missing=0
+          for f in plugins/autonomous-dev-loop/agents/*.md; do
+            grep -q '^name:' "$f" || { echo "missing name: $f" >&2; missing=1; }
+            grep -q '^description:' "$f" || { echo "missing description: $f" >&2; missing=1; }
+          done
+          exit $missing
+
+  json-syntax:
+    name: JSON syntax
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate JSON
+        run: |
+          for f in .claude-plugin/marketplace.json plugins/*/.claude-plugin/plugin.json plugins/*/hooks/*.json; do
+            [[ -f "$f" ]] || continue
+            python3 -c "import json,sys; json.load(open('$f'))" || { echo "invalid JSON: $f" >&2; exit 1; }
+          done
