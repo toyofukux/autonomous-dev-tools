@@ -1,0 +1,24 @@
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# editor
+.idea/
+.vscode/settings.json
+.vscode/launch.json
+
+# secrets (defense in depth; the pre-commit hook is the real guard)
+.env
+.env.*
+*.key
+*.pem
+secrets.*
+credentials.*
+
+# build / cache
+node_modules/
+dist/
+build/
+.cache/

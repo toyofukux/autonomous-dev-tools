@@ -1,0 +1,19 @@
+{
+  "name": "autonomous-dev-tools",
+  "description": "A marketplace of Claude Code plugins that drive autonomous development loops across projects.",
+  "owner": {
+    "name": "toyofukux"
+  },
+  "plugins": [
+    {
+      "name": "autonomous-dev-loop",
+      "description": "A lightweight 7-agent factory: research → story → spec → backend → frontend → verify → validate. Three human checkpoints, the rest runs on its own.",
+      "version": "0.1.0",
+      "category": "workflow",
+      "tags": ["spec-driven", "autonomous", "multi-agent", "factory"],
+      "source": {
+        "source": "./plugins/autonomous-dev-loop"
+      }
+    }
+  ]
+}
