@@ -1,0 +1,8 @@
+{
+  "name": "autonomous-dev-loop",
+  "description": "Story → spec → backend → frontend → verify → validate, driven by 7 specialized subagents with strict tool scoping and three human checkpoints.",
+  "version": "0.1.0",
+  "author": {
+    "name": "toyofukux"
+  }
+}

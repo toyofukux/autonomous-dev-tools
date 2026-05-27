@@ -1,0 +1,49 @@
+# Architecture
+
+> How the pieces fit. Slow-changing. Refresh when boundaries shift, not when files move.
+
+## System overview
+
+```text
+{{ ASCII or mermaid diagram showing main components and data flow }}
+```
+
+## Stack
+
+- **Language(s)**: {{ ... }}
+- **Backend framework**: {{ ... }}
+- **Frontend framework**: {{ ... }}
+- **Database**: {{ ... }}
+- **Queue/jobs**: {{ ... }}
+- **Auth**: {{ ... }}
+- **Hosting**: {{ ... }}
+- **Observability**: {{ ... }}
+
+## Module boundaries
+
+| Module | Owns | Depends on | Forbidden from |
+|---|---|---|---|
+| {{ e.g. checkout }} | {{ orders, coupons }} | {{ catalog, payments }} | {{ direct DB writes outside its tables }} |
+
+## Cross-cutting concerns
+
+- **Tenant isolation**: {{ how tenant_id is enforced; which layer rejects missing tenants }}
+- **Timezones**: {{ stored as UTC; displayed in user's tz; ... }}
+- **Idempotency**: {{ which endpoints require it; how keys are scoped }}
+- **Rate limiting**: {{ where, by what dimension, fallback behavior }}
+- **Background work**: {{ which jobs run where; retry/backoff policy }}
+
+## Data model overview
+
+{{ Entity-relationship sketch at the conceptual level (NOT per-field). Per-table fields belong in code/migrations. }}
+
+## Deploy & release
+
+- **Environments**: {{ ... }}
+- **Promotion flow**: {{ dev → staging → prod, gates ... }}
+- **Feature flags**: {{ tool, naming convention }}
+- **Rollback**: {{ procedure ... }}
+
+## Known limitations
+
+{{ honest current weaknesses; "we know about this, planned work, or accepted trade-off" }}

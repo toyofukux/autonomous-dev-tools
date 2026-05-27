@@ -1,0 +1,47 @@
+# {{ PROJECT-NAME }} — agent operating instructions
+
+> Loaded into every Claude Code session. Keep it 100–300 lines. Every surprise mistake should become a rule here.
+
+## Stack
+
+- {{ language(s), runtime versions }}
+- {{ backend framework }}
+- {{ frontend framework }}
+- {{ DB; ORM; migration tool }}
+- {{ queue / background jobs }}
+- {{ auth, hosting, observability }}
+
+## Commands
+
+| Purpose | Command |
+|---|---|
+| Install | `{{ ... }}` |
+| Dev server | `{{ ... }}` |
+| Run all tests | `{{ ... }}` |
+| Typecheck | `{{ ... }}` |
+| Lint | `{{ ... }}` |
+| DB migrate (dev) | `{{ ... }}` |
+
+## Architecture rules
+
+- Business logic lives in `{{ path }}/services/`. API routes stay thin (validate input, call service, format response).
+- All DB access goes through `{{ path }}/db/`. No raw SQL outside that boundary.
+- Background work uses `{{ queue tool }}`. Do not add cron.
+- Tenant scope is enforced at `{{ layer }}`. Every query that returns user data must include the tenant filter.
+
+## What not to do
+
+- Do not log secrets, payment payloads, or full request bodies. Use `{{ logger.redact(...) }}`.
+- Do not introduce new top-level dependencies without listing them in the spec's Risks section first.
+- Do not store IDs in memory across requests. Use the session/cache layer.
+- Do not silently catch and re-throw. Either handle (with logged context) or let it propagate.
+
+## Folders the autonomous-dev-loop plugin uses
+
+- `specs/concept.md`, `specs/arch.md` — slow-changing project docs
+- `specs/units/<u>/stories.md`, `decision-record.md` — per-unit functional spec + ADR
+- `specs/iterations/spec-YYYYMMDD-*.md` — per-iteration brief (deleted at PR merge)
+
+## Pointers to deeper docs
+
+- {{ docs/billing.md, docs/architecture.md, ... }}

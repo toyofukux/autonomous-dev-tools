@@ -1,0 +1,43 @@
+# SPEC index
+
+> The map. Humans start here. Subagents jump straight to the files they need.
+
+## What this project is
+
+- [Concept](./concept.md) — what we're building and why
+- [Architecture](./arch.md) — how the pieces fit together
+
+## How we work
+
+- [Guidelines](./guidelines/) — cross-cutting rules (added as needed)
+- [Repo-level CLAUDE.md](../CLAUDE.md) — agent operating instructions
+
+## Functional spec (per unit)
+
+> Created when the project outgrows ad-hoc stories. Run `/ad-organize` to propose units.
+
+- [Units](./units/)
+  - Each unit holds: `stories.md` (functional), `decision-record.md` (ADR)
+  - When a unit's `stories.md` exceeds ~500 lines, it splits into `story-001.md`, `story-002.md`, ... with `stories.md` as the index
+
+## In-flight work
+
+- [Iterations](./iterations/) — current development specs (`spec-YYYYMMDD-slug.md`)
+- Deleted on PR merge; decisions transferred to the relevant ADR
+
+## How to add a feature
+
+```text
+/ad-loop "describe the feature in one sentence"
+```
+
+Or step by step:
+
+```text
+/ad-story "describe the feature"        # → stories.md updated, ID returned
+/ad-spec <story-id>                     # → iterations/spec-YYYYMMDD-slug.md
+/ad-dev <spec-id>                       # → implementation
+/ad-verify <spec-id>                    # → acceptance tests
+/ad-validate <spec-id>                  # → gap report
+/ad-pr <spec-id>                        # → PR opened
+```

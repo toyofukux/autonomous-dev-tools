@@ -1,0 +1,125 @@
+---
+spec_id: spec-YYYYMMDD-slug
+units: [{{ UNIT }}]
+stories: [ST-NNN, ...]
+status: drafted | answering | approved | developing | verifying | validating | failed | pr | merged
+attempts: 0
+created: YYYY-MM-DD
+---
+
+# {{ TITLE — one sentence describing the change }}
+
+## Summary
+{{ 1–3 sentences: who benefits, what changes, what stays the same }}
+
+## Linked stories
+- ST-NNN: {{ verbatim quote of the story }}
+- ST-NNN: ...
+
+## Scope
+
+### In scope (this iteration)
+- {{ ... }}
+
+### Out of scope (this iteration)
+- {{ thing not built }} — Reason: {{ ... }}
+
+### Deferred (future, with re-evaluation trigger)
+- {{ thing pushed }} — Trigger to reconsider: {{ measurable condition }}
+
+## Backend
+
+### Data model changes
+{{ tables/columns/indexes added; migrations; constraints; null-handling. If none: "N/A — no data model change." }}
+
+### API changes
+{{ endpoints (method + path), request/response TS types or OpenAPI snippet. If none: "N/A". }}
+
+### Function design
+{{ public functions: signature + responsibility. Keep at interface level. }}
+
+### Business logic
+{{ stepwise flow, state transitions, invariants. Note tenant isolation and idempotency. }}
+
+### Performance & footprint
+- Computational complexity: {{ Big-O of hot paths with symbols defined (N=users, M=orders, ...) }}
+- DB query plan expectations: {{ index usage; N+1 risks called out; expected row counts }}
+- Indexes: {{ added/changed; write-cost trade-off }}
+- Data growth: {{ row size estimate; monthly delta; retention/aggregation policy }}
+- Payload size: {{ response KB estimate; pagination strategy }}
+- Latency budget: {{ p50/p95 target; concurrency target }}
+
+### Errors & customer support
+{{ what operators see (Sentry tags, dashboards); what users see; how on-call diagnoses }}
+
+### Logs for self-improvement
+{{ event names + payload schema that future AI analysis can mine. Tie to the story's success criteria. }}
+
+### Tests (backend unit)
+{{ test groups; mocks vs real; fixtures to add }}
+
+## Frontend
+
+### Folder layout
+```text
+{{ tree of added/changed files }}
+```
+
+### Components
+{{ responsibility, props, state slice }}
+
+### Pages / routes
+{{ route + composition }}
+
+### Hooks / state
+{{ shared hooks, query/cache keys, error boundaries }}
+
+### Error & loading states
+{{ visible failure paths and recovery }}
+
+### Tests (component / interaction)
+{{ test groups; tools (RTL, Vitest, Playwright); fixtures }}
+
+## Acceptance tests (from stories)
+
+| AC ID | From story | Scenario | Type |
+|---|---|---|---|
+| AC-1 | ST-NNN-1 | WHEN ... THEN ... | acceptance |
+| AC-2 | ST-NNN-2 | WHEN ... THEN ... | acceptance |
+
+## Diff expectation
+
+| File | Action | Owner | Notes |
+|---|---|---|---|
+| `src/server/checkout/coupon.ts` | add | backend | core service |
+| `src/app/checkout/CouponInput.tsx` | add | frontend | UI |
+| `db/migrations/0042_coupon.sql` | add | backend | schema |
+
+> Files outside this table will trigger a "scope drift" warning at validation.
+
+## Release steps
+
+1. {{ migration first (backward-compatible) }}
+2. {{ backend deploy, feature flag OFF }}
+3. {{ frontend deploy }}
+4. {{ flag ramp 10% → 50% → 100% }}
+5. {{ remove flag }}
+
+## Risks & assumptions
+
+- {{ assumption: ... — risk if wrong: ... }}
+- {{ infra requirement: ... — explicit, not invented silently }}
+
+## Questions
+
+> The Spec Writer leaves only **decisions the user must make**. The spec body above is written through with the recommended plan.
+
+- **Q1**: {{ question }}
+  - Recommended: {{ ... }} — Reason: {{ ... }}
+  - Alternative: {{ ... }} — When to pick: {{ ... }}
+
+## Decisions
+
+> Appended when questions are answered. Migrated to the unit's decision-record.md at PR time.
+
+- **D1 (Q1)**: {{ chosen option }}. Reason: {{ ... }}
