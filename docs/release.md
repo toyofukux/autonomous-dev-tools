@@ -18,9 +18,9 @@ Semantic: `MAJOR.MINOR.PATCH`.
    /reload-plugins
    # smoke-test the changed skills
    ```
-2. **Run validation**:
+2. **Run static validation** (same check CI runs):
    ```bash
-   claude plugin validate
+   python3 scripts/validate.py
    ```
 3. **Bump the version** in **both**:
    - `plugins/autonomous-dev-loop/.claude-plugin/plugin.json`

@@ -58,9 +58,11 @@ claude --plugin-dir ./plugins/autonomous-dev-loop
 # reload after edits
 /reload-plugins
 
-# validate the marketplace + plugin
-claude plugin validate
+# static validation (run before every PR; CI runs the same check)
+python3 scripts/validate.py
 ```
+
+The validator checks: marketplace + plugin manifest JSON, required frontmatter on every skill and agent, skill directory names match their `name:` field, the `ad-*` prefix convention, presence of all required templates, hook JSON syntax, and forbidden artifacts (e.g., a unit-level `spec.md` template, committed secrets-shaped files). It needs only Python 3.10+ — no Claude Code install required.
 
 See `docs/` for authoring guidance:
 
