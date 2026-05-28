@@ -1,6 +1,6 @@
 ---
 name: ad-init
-description: Initialize a new project's specs/ directory with the minimum viable structure for the autonomous-dev-loop. Creates concept.md, arch.md, SPEC.md index, iterations/ directory, and adds a CLAUDE.md if missing. Does NOT create units/ or guidelines/ — those are opt-in.
+description: Initialize a new project's specs/ directory with the minimum viable structure for the software-factory. Creates concept.md, arch.md, SPEC.md index, iterations/ directory, and adds a CLAUDE.md if missing. Does NOT create units/ or guidelines/ — those are opt-in.
 allowed-tools: Read, Write, Bash, Grep, Glob
 ---
 

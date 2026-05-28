@@ -1,6 +1,6 @@
 # Release
 
-How to cut a new version of `autonomous-dev-loop` (or any future plugin in this marketplace).
+How to cut a new version of `software-factory` (or any future plugin in this marketplace).
 
 ## Versioning
 
@@ -14,7 +14,7 @@ Semantic: `MAJOR.MINOR.PATCH`.
 
 1. **Verify locally**:
    ```bash
-   claude --plugin-dir ./plugins/autonomous-dev-loop
+   claude --plugin-dir ./plugins/software-factory
    /reload-plugins
    # smoke-test the changed skills
    ```
@@ -23,7 +23,7 @@ Semantic: `MAJOR.MINOR.PATCH`.
    python3 scripts/validate.py
    ```
 3. **Bump the version** in **both**:
-   - `plugins/autonomous-dev-loop/.claude-plugin/plugin.json`
+   - `plugins/software-factory/.claude-plugin/plugin.json`
    - `.claude-plugin/marketplace.json` (the plugin entry's `version` field)
    These must match. Mismatched versions break update notifications.
 4. **Update the changelog**:
@@ -36,11 +36,11 @@ Semantic: `MAJOR.MINOR.PATCH`.
    ```
 5. **Commit and tag**:
    ```bash
-   git commit -m "release: autonomous-dev-loop v0.2.0"
-   git tag autonomous-dev-loop-v0.2.0
+   git commit -m "release: software-factory v0.2.0"
+   git tag software-factory-v0.2.0
    git push origin main --tags
    ```
-6. **Users update** with `/plugin marketplace update` then `/plugin install autonomous-dev-loop@autonomous-dev-tools` (or it picks up automatically on next session if they have it enabled).
+6. **Users update** with `/plugin marketplace update` then `/plugin install software-factory@autonomous-dev-tools` (or it picks up automatically on next session if they have it enabled).
 
 ## Don't
 
@@ -56,7 +56,7 @@ For experimental changes, use `0.X.Y-beta.N` and tag accordingly. Users opt in b
 ## Yanking a release
 
 If a release ships broken:
-1. Tag the previous good commit as `autonomous-dev-loop-v0.2.1` (patch-level bump).
+1. Tag the previous good commit as `software-factory-v0.2.1` (patch-level bump).
 2. Document the regression in `CHANGELOG.md`.
 3. Push.
 4. Users update.

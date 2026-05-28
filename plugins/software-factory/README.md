@@ -1,4 +1,4 @@
-# autonomous-dev-loop
+# software-factory
 
 A lightweight 7-agent factory for Claude Code. Story → spec → backend → frontend → verify → validate, with three human checkpoints in between.
 
@@ -13,23 +13,23 @@ Adapted from sairahul1's "Software Factory" article, with our own additions:
 
 ```text
 /plugin marketplace add toyofukux/autonomous-dev-tools
-/plugin install autonomous-dev-loop@autonomous-dev-tools
+/plugin install software-factory@autonomous-dev-tools
 ```
 
 ## First use
 
 ```text
 # new project
-/autonomous-dev-loop:ad-init
+/software-factory:ad-init
 
 # existing project
-/autonomous-dev-loop:ad-bootstrap
+/software-factory:ad-bootstrap
 
 # run a feature end-to-end
-/autonomous-dev-loop:ad-loop "describe your feature in one sentence"
+/software-factory:ad-loop "describe your feature in one sentence"
 ```
 
-## The 14 skills (all namespaced `/autonomous-dev-loop:ad-*`)
+## The 14 skills (all namespaced `/software-factory:ad-*`)
 
 | Skill | Purpose |
 |---|---|
@@ -72,7 +72,7 @@ That's it. Everything else runs on its own.
 ## Layout
 
 ```text
-plugins/autonomous-dev-loop/
+plugins/software-factory/
 ├── .claude-plugin/plugin.json
 ├── agents/                  # 8 subagent definitions
 ├── skills/                  # 14 ad-* skills
@@ -92,7 +92,7 @@ plugins/autonomous-dev-loop/
 ## Develop locally
 
 ```bash
-claude --plugin-dir ./plugins/autonomous-dev-loop
+claude --plugin-dir ./plugins/software-factory
 /reload-plugins
 ```
 

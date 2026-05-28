@@ -6,7 +6,7 @@ allowed-tools: Read, Write, Bash, Grep, Glob
 
 # /ad-bootstrap
 
-Adopt the autonomous-dev-loop plugin on a project that already has code.
+Adopt the software-factory plugin on a project that already has code.
 
 ## When to use
 

@@ -1,6 +1,6 @@
 # Discipline
 
-The hardest part of the autonomous-dev-loop isn't the architecture; it's the discipline of using it correctly.
+The hardest part of the software-factory isn't the architecture; it's the discipline of using it correctly.
 
 ## Discipline #1: throw conversations away
 

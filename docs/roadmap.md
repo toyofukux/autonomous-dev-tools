@@ -19,7 +19,7 @@ On-call helper. `/ir-start <incident-id>` opens a structured incident timeline, 
 ### `release-orchestrator`
 Drives multi-step release deploys (feature flag ramps, canary, dark launches). Reads the iteration spec's "Release steps" section and progresses through them with health checks.
 
-## Future capabilities (in `autonomous-dev-loop`)
+## Future capabilities (in `software-factory`)
 
 ### `/ad-guideline import <url>`
 Pull a guideline from a community repo. Validates the file structure; copies into `specs/guidelines/`.

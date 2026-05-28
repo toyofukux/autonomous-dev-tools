@@ -2,7 +2,7 @@
 
 A Claude Code plugin marketplace for autonomous development.
 
-The first plugin, **`autonomous-dev-loop`**, ships a lightweight 7-agent factory adapted from sairahul1's "Software Factory" article. One developer + seven focused subagents = a coordinated team that takes a feature description and ends at a reviewed PR with three human checkpoints in between.
+The first plugin, **`software-factory`**, ships a lightweight 7-agent factory adapted from sairahul1's "Software Factory" article. One developer + seven focused subagents = a coordinated team that takes a feature description and ends at a reviewed PR with three human checkpoints in between.
 
 ## Install
 
@@ -10,7 +10,7 @@ In Claude Code:
 
 ```text
 /plugin marketplace add toyofukux/autonomous-dev-tools
-/plugin install autonomous-dev-loop@autonomous-dev-tools
+/plugin install software-factory@autonomous-dev-tools
 ```
 
 ## What you get
@@ -53,7 +53,7 @@ Everything between runs on its own.
 
 ```bash
 # load the plugin from this repo in a test session
-claude --plugin-dir ./plugins/autonomous-dev-loop
+claude --plugin-dir ./plugins/software-factory
 
 # reload after edits
 /reload-plugins

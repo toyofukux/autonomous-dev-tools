@@ -1,6 +1,6 @@
 # Artifact lifecycle
 
-How docs flow through the autonomous-dev-loop, in chronological order.
+How docs flow through the software-factory, in chronological order.
 
 ## Slow-changing (created once, updated occasionally)
 

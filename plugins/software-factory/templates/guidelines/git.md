@@ -6,7 +6,7 @@
 
 ### Branch naming
 - `main` is always shippable. No direct commits.
-- Feature branches: `feat/<spec-id>` for autonomous-dev-loop iterations (e.g., `feat/spec-20260527-checkout-coupon`).
+- Feature branches: `feat/<spec-id>` for software-factory iterations (e.g., `feat/spec-20260527-checkout-coupon`).
 - Other prefixes: `fix/`, `chore/`, `docs/`, `refactor/`, `experiment/`.
 - Short, kebab-case, descriptive. No personal names.
 

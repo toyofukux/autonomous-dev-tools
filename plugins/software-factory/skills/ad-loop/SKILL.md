@@ -1,6 +1,6 @@
 ---
 name: ad-loop
-description: Run the full autonomous-dev-loop chain end-to-end from a feature description to an open PR. Pauses at the three human checkpoints (story approval, brief approval, PR review).
+description: Run the full software-factory chain end-to-end from a feature description to an open PR. Pauses at the three human checkpoints (story approval, brief approval, PR review).
 allowed-tools: Read, Write, Edit, Bash, Grep, Glob
 arguments: feature
 ---

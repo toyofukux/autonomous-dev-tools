@@ -5,7 +5,7 @@ Subagents are the workers. Each has one job, its own context window, and a stric
 ## File layout
 
 ```text
-plugins/autonomous-dev-loop/agents/<noun>.md
+plugins/software-factory/agents/<noun>.md
 ```
 
 The filename's basename is the agent name (must match the `name` frontmatter field).

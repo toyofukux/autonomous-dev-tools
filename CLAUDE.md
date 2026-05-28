@@ -1,12 +1,12 @@
 # Repo: autonomous-dev-tools
 
-You are working in the marketplace repo that distributes the `autonomous-dev-loop` plugin. This repo's job is to **author** the plugin, not to use it.
+You are working in the marketplace repo that distributes the `software-factory` plugin. This repo's job is to **author** the plugin, not to use it.
 
 ## Layout
 
 ```
 .claude-plugin/marketplace.json     # the marketplace catalog
-plugins/autonomous-dev-loop/        # the (currently only) plugin
+plugins/software-factory/        # the (currently only) plugin
   .claude-plugin/plugin.json
   agents/                           # 8 subagent definitions
   skills/                           # 14 ad-* skills
@@ -19,7 +19,7 @@ docs/                               # plugin authoring docs
 
 ## Hard rules
 
-1. **Skill names**: every skill in `plugins/autonomous-dev-loop/skills/` is named `ad-<verb>`. Never drop the prefix; never use a different prefix. See `docs/naming.md`.
+1. **Skill names**: every skill in `plugins/software-factory/skills/` is named `ad-<verb>`. Never drop the prefix; never use a different prefix. See `docs/naming.md`.
 2. **Subagent tool scoping is non-negotiable**. Backend builder must never list frontend tools, validator must never list write tools, etc. The whole point of the factory is the scoping; loosening it defeats the design.
 3. **Templates are user-facing artifacts**. When editing `templates/`, ask "would a first-time user understand this in 5 minutes?" If no, simplify.
 4. **No `spec.md` anywhere**. We never instruct skills/subagents to maintain a `spec.md` file. The SSoT model is distributed (see `docs/lifecycle.md`).
@@ -37,4 +37,4 @@ docs/                               # plugin authoring docs
 - Do not pull skill/agent definitions from `~/.claude/` automatically. Guideline content may be informed by personal rules, but the plugin's skills/agents are authored fresh.
 - Do not add a `spec.md` template, even if asked. Redirect to `concept.md` + `stories.md` + ADR.
 - Do not add subagent #9 without removing or merging an existing one. 7 is the target.
-- Do not commit secrets (the pre-commit hook in `plugins/autonomous-dev-loop/hooks/` is the safety net, not the only line of defense).
+- Do not commit secrets (the pre-commit hook in `plugins/software-factory/hooks/` is the safety net, not the only line of defense).

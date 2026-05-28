@@ -7,7 +7,7 @@ arguments: feature
 
 # /ad-story $feature
 
-Draft a user story for "$feature" and add it to `stories.md` after approval. This is the **first human checkpoint** of the autonomous-dev-loop.
+Draft a user story for "$feature" and add it to `stories.md` after approval. This is the **first human checkpoint** of the software-factory.
 
 ## What you do
 

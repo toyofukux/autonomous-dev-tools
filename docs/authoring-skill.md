@@ -5,7 +5,7 @@ Skills are the user-facing entry points. They orchestrate subagents.
 ## File layout
 
 ```text
-plugins/autonomous-dev-loop/skills/ad-<verb>/SKILL.md
+plugins/software-factory/skills/ad-<verb>/SKILL.md
 ```
 
 For supporting files (scripts, references), add siblings under the same directory and reference them with `${CLAUDE_SKILL_DIR}`.

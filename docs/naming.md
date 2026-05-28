@@ -2,12 +2,12 @@
 
 ## Skills
 
-Every skill in `plugins/autonomous-dev-loop/skills/` is named **`ad-<verb>`**.
+Every skill in `plugins/software-factory/skills/` is named **`ad-<verb>`**.
 
 - `ad` = autonomous development.
 - `<verb>` is a single short imperative: `init`, `bootstrap`, `story`, `spec`, `dev`, `verify`, `validate`, `fix`, `pr`, `loop`, `summary`, `guideline`, `organize`.
 
-When installed via plugin, the command becomes `/autonomous-dev-loop:ad-<verb>`. The double-prefix is intentional:
+When installed via plugin, the command becomes `/software-factory:ad-<verb>`. The double-prefix is intentional:
 
 - It guards against name collision if a user ever copies a skill out of the plugin and into their own `.claude/skills/`.
 - It keeps the brand grouped (autocomplete will surface all `ad-*` skills together).
@@ -31,7 +31,7 @@ Bundled guideline files live at `templates/guidelines/<name>.md` (no `.tmpl` —
 If you ever need to change the `ad-` prefix (rebrand, conflict with another plugin):
 
 ```bash
-scripts/rename-prefix.sh autonomous-dev-loop ad zz
+scripts/rename-prefix.sh software-factory ad zz
 ```
 
 This:

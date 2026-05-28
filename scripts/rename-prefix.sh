@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Rename the ad-* skill prefix across a plugin.
 # Usage: scripts/rename-prefix.sh <plugin-name> <old-prefix> <new-prefix>
-# Example: scripts/rename-prefix.sh autonomous-dev-loop ad zz
+# Example: scripts/rename-prefix.sh software-factory ad zz
 #   → ad-spec/ → zz-spec/, references in SKILL.md and READMEs updated.
 set -euo pipefail
 

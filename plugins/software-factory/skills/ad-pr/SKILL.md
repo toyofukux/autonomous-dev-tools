@@ -58,7 +58,7 @@ Open the PR. **Third (and final) human checkpoint** of the loop.
 - Validator verdict: PASS
 - Validator report: (deleted with the iteration spec; see git log for full text)
 
-🤖 Generated with the autonomous-dev-loop plugin
+🤖 Generated with the software-factory plugin
 ```
 
 8. **Run `gh pr create`** with the body above. Use `--draft` if the user wants a final review pass before requesting reviewers; ask once.

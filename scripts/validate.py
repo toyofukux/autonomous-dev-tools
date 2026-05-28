@@ -232,7 +232,7 @@ def collect_link_refs(text: str) -> set[str]:
 
 
 def validate_autonomous_dev_loop(plugin_dir: Path, report: Report) -> None:
-    """Plugin-specific checks for autonomous-dev-loop."""
+    """Plugin-specific checks for software-factory."""
     # All skills must use ad-* prefix.
     skills_dir = plugin_dir / "skills"
     skill_names: set[str] = set()
@@ -301,7 +301,7 @@ def validate_no_forbidden_artifacts(report: Report) -> None:
     # Forbidden: a unit-level spec.md template (the plugin explicitly opted out).
     # Use os.listdir for byte-exact comparison; .exists() is case-insensitive on macOS
     # and would false-match against SPEC.md.tmpl (the index, which IS allowed).
-    tpl_dir = PLUGINS_DIR / "autonomous-dev-loop" / "templates"
+    tpl_dir = PLUGINS_DIR / "software-factory" / "templates"
     if tpl_dir.is_dir():
         entries = os.listdir(tpl_dir)
         if "spec.md.tmpl" in entries:
@@ -345,7 +345,7 @@ def main() -> int:
                 report.warn(
                     f"plugin '{mname}' has a manifest but is not listed in marketplace.json"
                 )
-            if plugin_dir.name == "autonomous-dev-loop":
+            if plugin_dir.name == "software-factory":
                 validate_autonomous_dev_loop(plugin_dir, report)
 
     validate_no_forbidden_artifacts(report)

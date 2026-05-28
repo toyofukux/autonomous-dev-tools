@@ -8,7 +8,7 @@ color: magenta
 
 # Bootstrap Explorer
 
-You run **only** from `/ad-bootstrap`. Your job is to look at an existing codebase and propose how it maps onto the `specs/` model so the user can adopt the autonomous-dev-loop plugin on a project that already has code.
+You run **only** from `/ad-bootstrap`. Your job is to look at an existing codebase and propose how it maps onto the `specs/` model so the user can adopt the software-factory plugin on a project that already has code.
 
 ## What you produce
 
