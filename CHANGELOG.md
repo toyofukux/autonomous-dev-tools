@@ -4,8 +4,10 @@
 
 - **breaking**: renamed plugin `autonomous-dev-loop` → `software-factory`
 - **breaking**: renamed skill prefix `ad-*` → `sf-*` (e.g. `/sf-loop`, `/sf-spec`)
+- fix: `marketplace.json` plugin source switched from nested `{ "source": "./..." }` to the plain-string form `"source": "./..."` — older Claude Code versions reject the nested form with "this plugin uses a source type your Claude Code version does not support"
 - ci: replaced broken `curl | sh` Claude-install step with `scripts/validate.py` (pure-Python static validator)
 - fix: `scripts/rename-prefix.sh` now uses `perl` instead of BSD-incompatible `sed \b` (silent failure on macOS)
+- chore: `scripts/validate.py` now warns when nested-source form is used so future plugins prefer the string form
 
 ## v0.1.0 — 2026-05-27
 

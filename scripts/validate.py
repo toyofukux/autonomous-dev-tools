@@ -144,11 +144,25 @@ def validate_marketplace(report: Report) -> dict | None:
             report.error(f"marketplace.json: plugins[{i}] ({name}) missing 'source'")
             continue
         src = plugin["source"]
-        if isinstance(src, dict) and "source" in src and src["source"].startswith("./"):
-            plugin_path = ROOT / src["source"].lstrip("./")
+        # Resolve to a relative path string if source is one of the supported forms.
+        rel_path = None
+        if isinstance(src, str) and src.startswith("./"):
+            rel_path = src
+        elif isinstance(src, dict) and isinstance(src.get("source"), str) and src["source"].startswith("./"):
+            # Older nested form: { "source": "./path" }. Still accepted by some Claude Code
+            # versions but rejected by others ("plugin uses a source type your version does
+            # not support"). Warn so authors migrate to the string form.
+            rel_path = src["source"]
+            report.warn(
+                f"marketplace.json: plugins[{i}] ({name}) uses nested source "
+                "object for a relative path; prefer the string form "
+                f'`"source": "{rel_path}"` for broader compatibility'
+            )
+        if rel_path:
+            plugin_path = ROOT / rel_path.lstrip("./")
             if not (plugin_path / ".claude-plugin" / "plugin.json").exists():
                 report.error(
-                    f"marketplace.json: plugins[{i}] ({name}) points to {src['source']} "
+                    f"marketplace.json: plugins[{i}] ({name}) points to {rel_path} "
                     "but no plugin.json found there"
                 )
         if "version" not in plugin:

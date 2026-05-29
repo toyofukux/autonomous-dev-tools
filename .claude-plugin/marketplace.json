@@ -11,9 +11,7 @@
       "version": "0.1.0",
       "category": "workflow",
       "tags": ["spec-driven", "autonomous", "multi-agent", "factory"],
-      "source": {
-        "source": "./plugins/software-factory"
-      }
+      "source": "./plugins/software-factory"
     }
   ]
 }
