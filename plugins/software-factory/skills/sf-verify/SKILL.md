@@ -1,17 +1,17 @@
 ---
-name: ad-verify
+name: sf-verify
 description: Write acceptance tests for an implemented spec by delegating to test-verifier. Acceptance tests only (not unit) — those were the builders' responsibility.
 allowed-tools: Read, Write, Edit, Bash, Grep, Glob
 arguments: spec_id
 ---
 
-# /ad-verify $spec_id
+# /sf-verify $spec_id
 
 Run the test-verifier to write acceptance tests against the story's AC.
 
 ## Preconditions
 
-- `specs/iterations/$spec_id.md` exists with `status: verifying` (i.e., [[ad-dev]] completed successfully).
+- `specs/iterations/$spec_id.md` exists with `status: verifying` (i.e., [[sf-dev]] completed successfully).
 - Both builders' summary reports are available.
 
 ## What you do
@@ -27,12 +27,12 @@ Run the test-verifier to write acceptance tests against the story's AC.
 5. **Run the test suite** (`bash` with the project's test command from CLAUDE.md).
 6. **Update spec frontmatter**:
    - All AC covered & passing → `status: validating`
-   - At least one AC failing → `status: failed`, route the user to [[ad-fix]]
+   - At least one AC failing → `status: failed`, route the user to [[sf-fix]]
    - At least one AC genuinely uncoverable → `status: validating` but include the gaps in the report; the validator will read them
 7. **Report**:
    - The coverage table (every AC's status)
    - The verdict (PASS / FAIL / INCOMPLETE)
-   - Next command: `/ad-validate $spec_id` (on PASS or INCOMPLETE) or `/ad-fix $spec_id` (on FAIL)
+   - Next command: `/sf-validate $spec_id` (on PASS or INCOMPLETE) or `/sf-fix $spec_id` (on FAIL)
 
 ## Discipline
 

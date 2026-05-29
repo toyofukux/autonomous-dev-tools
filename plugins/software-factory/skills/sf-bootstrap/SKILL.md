@@ -1,10 +1,10 @@
 ---
-name: ad-bootstrap
+name: sf-bootstrap
 description: Reverse-engineer an existing project into specs/ scaffolding by delegating to the bootstrap-explorer subagent, presenting its proposal for approval, and writing the approved files. Use when the project already has code but no specs/ yet.
 allowed-tools: Read, Write, Bash, Grep, Glob
 ---
 
-# /ad-bootstrap
+# /sf-bootstrap
 
 Adopt the software-factory plugin on a project that already has code.
 
@@ -32,8 +32,8 @@ Run once, on an existing project, to seed `specs/` from what already exists. If 
    - `specs/units/<name>/stories.md` for each confirmed unit (empty, with template header)
    - `specs/units/<name>/decision-record.md` for each unit (empty)
    - `specs/iterations/` with `.gitkeep`
-6. **Create CLAUDE.md** only if missing (same as [[ad-init]]).
-7. **Summarize** what was created and recommend the next step (`/ad-story` to add a first new story, or pick an existing extracted story to drive `/ad-spec`).
+6. **Create CLAUDE.md** only if missing (same as [[sf-init]]).
+7. **Summarize** what was created and recommend the next step (`/sf-story` to add a first new story, or pick an existing extracted story to drive `/sf-spec`).
 
 ## Discipline
 
@@ -44,6 +44,6 @@ Run once, on an existing project, to seed `specs/` from what already exists. If 
 
 ## Edge cases
 
-- **No tests found** → skip the "extract initial stories" step entirely; tell the user `/ad-story` is the next move.
+- **No tests found** → skip the "extract initial stories" step entirely; tell the user `/sf-story` is the next move.
 - **CLAUDE.md already comprehensive** → don't touch it; instead show what the template would have added so the user can merge.
-- **Monorepo** → bootstrap-explorer should propose units per package; if the proposal is dense, ask the user to scope to one package per `/ad-bootstrap` run.
+- **Monorepo** → bootstrap-explorer should propose units per package; if the proposal is dense, ask the user to scope to one package per `/sf-bootstrap` run.

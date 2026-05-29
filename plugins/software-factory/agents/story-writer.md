@@ -39,7 +39,7 @@ A single story block, ready to append to `stories.md`. The orchestrator will ass
 - {explicitly NOT covered}
 
 ### Open questions
-- {honest unknowns — never guessed; the user must answer these before /ad-spec}
+- {honest unknowns — never guessed; the user must answer these before /sf-spec}
 ```
 
 ## Rules you do not break

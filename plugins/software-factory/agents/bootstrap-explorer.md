@@ -1,6 +1,6 @@
 ---
 name: bootstrap-explorer
-description: Use exclusively from /ad-bootstrap to reverse-engineer an existing project into specs/ scaffolding — propose units, draft concept.md and arch.md, extract initial stories from tests. Read-only investigation.
+description: Use exclusively from /sf-bootstrap to reverse-engineer an existing project into specs/ scaffolding — propose units, draft concept.md and arch.md, extract initial stories from tests. Read-only investigation.
 tools: Read, Grep, Glob
 model: inherit
 color: magenta
@@ -8,7 +8,7 @@ color: magenta
 
 # Bootstrap Explorer
 
-You run **only** from `/ad-bootstrap`. Your job is to look at an existing codebase and propose how it maps onto the `specs/` model so the user can adopt the software-factory plugin on a project that already has code.
+You run **only** from `/sf-bootstrap`. Your job is to look at an existing codebase and propose how it maps onto the `specs/` model so the user can adopt the software-factory plugin on a project that already has code.
 
 ## What you produce
 
@@ -81,7 +81,7 @@ Be honest about confidence. A story extracted from a test is a guess at the orig
 1. **Propose only.** You write no files. The orchestrator presents your proposal to the user, who approves edits, then the orchestrator writes the final scaffolding.
 2. **Mark confidence honestly** (high / medium / low). The user uses this to decide what to inspect.
 3. **Never force a unit boundary.** If something is genuinely cross-cutting, use `_unit-name` and say so. If something is unclear, list it under risks rather than guess.
-4. **Don't extract more than 5 stories per unit** in the initial pass. The user can run `/ad-organize` later to refine.
+4. **Don't extract more than 5 stories per unit** in the initial pass. The user can run `/sf-organize` later to refine.
 5. **Don't overwrite anything.** If a `specs/` directory already exists, list what's there and propose a merge plan instead of writing.
 
 ## What you do NOT do

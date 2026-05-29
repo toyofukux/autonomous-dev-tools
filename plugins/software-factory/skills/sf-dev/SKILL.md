@@ -1,11 +1,11 @@
 ---
-name: ad-dev
+name: sf-dev
 description: Implement an approved spec by running backend-builder then frontend-builder in sequence. Backend writes backend-summary.md as the API contract for frontend. Add --parallel to opt into worktree-based parallel dev (advanced).
 allowed-tools: Read, Write, Edit, Bash, Grep, Glob
 arguments: spec_id
 ---
 
-# /ad-dev $spec_id
+# /sf-dev $spec_id
 
 Implement the approved brief. Default: sequential (backend → frontend). Optional: `--parallel` for worktree-based parallelism.
 
@@ -30,15 +30,15 @@ Implement the approved brief. Default: sequential (backend → frontend). Option
    - Researcher findings + CLAUDE.md + guidelines
 5. **If frontend-builder surfaces an API mismatch**: stop. Show the mismatch to the user. They choose:
    - Re-run `backend-builder` with the frontend's feedback as a fix
-   - Update the spec via [[ad-fix]]
+   - Update the spec via [[sf-fix]]
    - Abandon the iteration
-6. **Compile both builders' reports** and surface to the user. Next command: `/ad-verify $spec_id`.
+6. **Compile both builders' reports** and surface to the user. Next command: `/sf-verify $spec_id`.
 
 ## Parallel flow (`--parallel`)
 
 Opt-in. Requires the spec's Diff expectation to have zero overlap between backend and frontend owners (the spec-writer should have arranged this; we check).
 
-1. **Pre-flight check**: validate the Diff expectation has no file owned by both `backend` and `frontend`. If overlap exists, refuse and tell the user to either re-run `/ad-spec` (to separate the shared types into a "shared" pre-step) or run sequential.
+1. **Pre-flight check**: validate the Diff expectation has no file owned by both `backend` and `frontend`. If overlap exists, refuse and tell the user to either re-run `/sf-spec` (to separate the shared types into a "shared" pre-step) or run sequential.
 2. **Create worktrees**:
    - `git worktree add ../wt-$spec_id-be feat/$spec_id-be`
    - `git worktree add ../wt-$spec_id-fe feat/$spec_id-fe`
@@ -53,11 +53,11 @@ Opt-in. Requires the spec's Diff expectation to have zero overlap between backen
 
 - `approved` → `developing` (at start)
 - `developing` → `verifying` (after both builders pass typecheck+lint+unit tests)
-- on failure: `developing` → `failed` (orchestrator stops; user uses [[ad-fix]])
+- on failure: `developing` → `failed` (orchestrator stops; user uses [[sf-fix]])
 
 ## Discipline
 
-- **Never start `/ad-verify` or `/ad-validate` automatically.** This skill stops at `verifying`.
+- **Never start `/sf-verify` or `/sf-validate` automatically.** This skill stops at `verifying`.
 - **Capture test output verbatim** — don't paraphrase. Builders' summaries already report pass/fail; do not mark the iteration `verifying` if any test failed.
-- **Do not edit the spec body** — if the spec is wrong, that's an [[ad-fix]] flow.
+- **Do not edit the spec body** — if the spec is wrong, that's an [[sf-fix]] flow.
 - **Do not skip backend-summary.md**. If backend-builder didn't write it, that's an error to escalate, not patch around.

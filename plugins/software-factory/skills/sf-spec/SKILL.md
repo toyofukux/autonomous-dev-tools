@@ -1,11 +1,11 @@
 ---
-name: ad-spec
+name: sf-spec
 description: Turn one or more approved stories into a technical brief at specs/iterations/spec-YYYYMMDD-slug.md by delegating to spec-writer. Second human checkpoint. Requires the story's open questions to be answered first.
 allowed-tools: Read, Write, Bash, Grep, Glob
 arguments: story_ids
 ---
 
-# /ad-spec $story_ids
+# /sf-spec $story_ids
 
 Generate the technical brief for the given story (or stories) and write it to `specs/iterations/`. This is the **second human checkpoint**.
 
@@ -32,12 +32,12 @@ Generate the technical brief for the given story (or stories) and write it to `s
      - approve as-is (status → `approved`), or
      - answer questions, then we update the Decisions section and approve.
 8. **On approval**, update the spec's `status:` frontmatter to `approved` and the `Decisions` section with any answers the user gave. Update each linked story's status to `speccing` in its `stories.md`.
-9. **Report** the spec ID and the next command: `/ad-dev <spec-id>`.
+9. **Report** the spec ID and the next command: `/sf-dev <spec-id>`.
 
 ## Discipline
 
 - **Question section must be empty (or only listing user-input choices) before status becomes `approved`.** Spec-writer leaves no implementation question — those must be self-resolved.
-- **Do not start `/ad-dev` automatically.** Approval here is human-required.
+- **Do not start `/sf-dev` automatically.** Approval here is human-required.
 - **One iteration per spec.** If the user wants to bundle unrelated stories, push back — separate specs are easier to validate and revert.
 
 ## Filename slug generation

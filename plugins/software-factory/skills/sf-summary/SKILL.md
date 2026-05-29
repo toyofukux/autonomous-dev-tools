@@ -1,11 +1,11 @@
 ---
-name: ad-summary
+name: sf-summary
 description: Generate (don't maintain) a current-state digest for a unit or the whole project, drawn from concept/arch/stories/ADRs/code. Output is for reading; never persisted as a spec.md.
 allowed-tools: Read, Grep, Glob
 arguments: target
 ---
 
-# /ad-summary $target
+# /sf-summary $target
 
 On-demand digest of "what does $target do today". $target is a unit name (e.g., `checkout`) or `all` for the whole project.
 

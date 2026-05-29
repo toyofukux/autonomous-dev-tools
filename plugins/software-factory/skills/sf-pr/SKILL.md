@@ -1,18 +1,18 @@
 ---
-name: ad-pr
+name: sf-pr
 description: Finalize an iteration — transfer Decisions to the unit's ADR, mark stories done, delete the iteration spec, open a PR with the validator's CLAUDE.md suggestions surfaced. Third human checkpoint.
 allowed-tools: Read, Write, Edit, Bash, Grep, Glob
 arguments: spec_id
 ---
 
-# /ad-pr $spec_id
+# /sf-pr $spec_id
 
 Open the PR. **Third (and final) human checkpoint** of the loop.
 
 ## Preconditions
 
 - `specs/iterations/$spec_id.md` exists with `status: pr` (validator PASS).
-- Git branch checked out for this iteration (typically `feat/$spec_id` from [[ad-dev]]).
+- Git branch checked out for this iteration (typically `feat/$spec_id` from [[sf-dev]]).
 - `gh` CLI available and authenticated.
 
 ## What you do
@@ -66,7 +66,7 @@ Open the PR. **Third (and final) human checkpoint** of the loop.
 
 ## Abandon mode
 
-`/ad-pr --abandon $spec_id`:
+`/sf-pr --abandon $spec_id`:
 - Stops without opening a PR
 - Reverts story Status to `approved` (so the spec can be re-attempted later)
 - Deletes the iteration spec directory

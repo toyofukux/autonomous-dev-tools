@@ -1,11 +1,11 @@
 ---
-name: ad-research
-description: Run the codebase-researcher subagent standalone for an ad-hoc topic. Useful when planning a refactor or investigating an area before opening a story.
+name: sf-research
+description: Run the codebase-researcher subagent standalone for an sf-hoc topic. Useful when planning a refactor or investigating an area before opening a story.
 allowed-tools: Read
 arguments: topic
 ---
 
-# /ad-research $topic
+# /sf-research $topic
 
 Standalone codebase recon. Wraps the `codebase-researcher` subagent for one-off questions.
 
@@ -15,7 +15,7 @@ Standalone codebase recon. Wraps the `codebase-researcher` subagent for one-off 
 - "Is there already a thing that does Y?"
 - "Where would I add Z?"
 
-Not used inside [[ad-loop]] — `ad-loop` invokes the researcher directly. This is the manual entry.
+Not used inside [[sf-loop]] — `sf-loop` invokes the researcher directly. This is the manual entry.
 
 ## What you do
 
@@ -26,4 +26,4 @@ Not used inside [[ad-loop]] — `ad-loop` invokes the researcher directly. This 
 ## Discipline
 
 - One topic per invocation. If $topic spans multiple unrelated areas, ask the user to narrow.
-- No follow-up agents auto-chain. The user can run `/ad-story` next if they want.
+- No follow-up agents auto-chain. The user can run `/sf-story` next if they want.

@@ -5,7 +5,7 @@ A lightweight 7-agent factory for Claude Code. Story → spec → backend → fr
 Adapted from sairahul1's "Software Factory" article, with our own additions:
 - `units/` and ADR for medium-scale projects (opt-in)
 - iteration spec lifecycle (created per iteration, deleted on merge)
-- `/ad-bootstrap` for existing projects
+- `/sf-bootstrap` for existing projects
 - explicit performance + scope sections in the spec template
 - bundled industry-grade guidelines
 
@@ -20,33 +20,33 @@ Adapted from sairahul1's "Software Factory" article, with our own additions:
 
 ```text
 # new project
-/software-factory:ad-init
+/software-factory:sf-init
 
 # existing project
-/software-factory:ad-bootstrap
+/software-factory:sf-bootstrap
 
 # run a feature end-to-end
-/software-factory:ad-loop "describe your feature in one sentence"
+/software-factory:sf-loop "describe your feature in one sentence"
 ```
 
 ## The 14 skills (all namespaced `/software-factory:ad-*`)
 
 | Skill | Purpose |
 |---|---|
-| `ad-init` | Scaffold new project's `specs/` |
-| `ad-bootstrap` | Reverse-engineer `specs/` from existing project |
-| `ad-research` | Standalone codebase recon |
-| `ad-story` | Draft a user story |
-| `ad-spec` | Generate a technical brief |
-| `ad-dev` | Implement (backend → frontend) |
-| `ad-verify` | Write acceptance tests |
-| `ad-validate` | Report gaps vs spec |
-| `ad-fix` | Route findings back to right builder |
-| `ad-pr` | Open PR, transfer decisions to ADR |
-| `ad-loop` | Full chain orchestrator |
-| `ad-summary` | On-demand current-state digest |
-| `ad-guideline` | Add a bundled guideline |
-| `ad-organize` | Propose unit split |
+| `sf-init` | Scaffold new project's `specs/` |
+| `sf-bootstrap` | Reverse-engineer `specs/` from existing project |
+| `sf-research` | Standalone codebase recon |
+| `sf-story` | Draft a user story |
+| `sf-spec` | Generate a technical brief |
+| `sf-dev` | Implement (backend → frontend) |
+| `sf-verify` | Write acceptance tests |
+| `sf-validate` | Report gaps vs spec |
+| `sf-fix` | Route findings back to right builder |
+| `sf-pr` | Open PR, transfer decisions to ADR |
+| `sf-loop` | Full chain orchestrator |
+| `sf-summary` | On-demand current-state digest |
+| `sf-guideline` | Add a bundled guideline |
+| `sf-organize` | Propose unit split |
 
 ## The 8 subagents
 

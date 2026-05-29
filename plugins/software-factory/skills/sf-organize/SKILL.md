@@ -1,10 +1,10 @@
 ---
-name: ad-organize
+name: sf-organize
 description: Propose splitting accumulated stories into units (or restructuring existing units). Analyzes specs/stories.md or all specs/units/*/stories.md, proposes clusters, asks the user to confirm, then physically moves stories.
 allowed-tools: Read, Write, Bash, Grep, Glob
 ---
 
-# /ad-organize
+# /sf-organize
 
 Refactor the `specs/units/` tree based on accumulated stories.
 
@@ -34,7 +34,7 @@ Refactor the `specs/units/` tree based on accumulated stories.
    - Move/copy story blocks (preserve IDs; do not renumber)
    - When splitting `stories.md` into `story-NNN.md` files: rewrite `stories.md` as an index pointing to the new files
    - Update any iteration specs in `specs/iterations/` that referenced the moved stories' files (update their `units:` frontmatter)
-6. **Report** the new tree and recommend re-running [[ad-summary]] to verify.
+6. **Report** the new tree and recommend re-running [[sf-summary]] to verify.
 
 ## Discipline
 

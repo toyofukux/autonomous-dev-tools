@@ -25,7 +25,7 @@ PLUGINS_DIR = ROOT / "plugins"
 FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---\s*\n", re.DOTALL)
 SKILL_NAME_RE = re.compile(r"^[a-z][a-z0-9-]*$")
 AGENT_NAME_RE = re.compile(r"^[a-z][a-z0-9-]*$")
-AD_PREFIX_RE = re.compile(r"^ad-[a-z][a-z0-9-]*$")
+SF_PREFIX_RE = re.compile(r"^sf-[a-z][a-z0-9-]*$")
 LINK_REF_RE = re.compile(r"\[\[([a-z0-9-]+)\]\]")
 
 
@@ -240,9 +240,9 @@ def validate_autonomous_dev_loop(plugin_dir: Path, report: Report) -> None:
         for sd in sorted(skills_dir.iterdir()):
             if not sd.is_dir():
                 continue
-            if not AD_PREFIX_RE.match(sd.name):
+            if not SF_PREFIX_RE.match(sd.name):
                 report.error(
-                    f"plugin '{plugin_dir.name}': skill '{sd.name}' must match ad-*"
+                    f"plugin '{plugin_dir.name}': skill '{sd.name}' must match sf-*"
                 )
             name = validate_skill(sd, report)
             if name:
@@ -256,7 +256,7 @@ def validate_autonomous_dev_loop(plugin_dir: Path, report: Report) -> None:
             if name:
                 agent_names.add(name)
 
-    # Cross-reference: [[ad-x]] in SKILL.md should resolve to an existing skill or agent.
+    # Cross-reference: [[sf-x]] in SKILL.md should resolve to an existing skill or agent.
     known = skill_names | agent_names
     if skills_dir.is_dir():
         for sd in skills_dir.iterdir():

@@ -34,7 +34,7 @@ disable-model-invocation: true    # only user-typeable; Claude won't auto-invoke
 
 1. **Open with a 1-sentence purpose line.**
 2. **Sections in this order**: Preconditions → What you do (numbered) → Discipline → Edge cases / Failure modes.
-3. **Reference other skills with `[[ad-other]]`** so renames stay traceable.
+3. **Reference other skills with `[[sf-other]]`** so renames stay traceable.
 4. **Reference subagents by name** ("Delegate to `spec-writer`...").
 5. **State the next-command recommendation** at the end so the user knows what's next.
 

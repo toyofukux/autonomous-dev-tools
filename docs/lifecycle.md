@@ -4,15 +4,15 @@ How docs flow through the software-factory, in chronological order.
 
 ## Slow-changing (created once, updated occasionally)
 
-- `specs/concept.md` — created by `/ad-init`. Edited rarely, when the product's "why" shifts.
-- `specs/arch.md` — created by `/ad-init` or `/ad-bootstrap`. Updated when module boundaries or stack change.
-- `specs/guidelines/*.md` — added opt-in via `/ad-guideline <name>`. Edited as the team's standards evolve.
-- `CLAUDE.md` (project root) — created by `/ad-init` (if absent). Updated continuously as Claude makes surprise mistakes; every surprise → a new rule. Validator surfaces suggestions.
+- `specs/concept.md` — created by `/sf-init`. Edited rarely, when the product's "why" shifts.
+- `specs/arch.md` — created by `/sf-init` or `/sf-bootstrap`. Updated when module boundaries or stack change.
+- `specs/guidelines/*.md` — added opt-in via `/sf-guideline <name>`. Edited as the team's standards evolve.
+- `CLAUDE.md` (project root) — created by `/sf-init` (if absent). Updated continuously as Claude makes surprise mistakes; every surprise → a new rule. Validator surfaces suggestions.
 
 ## Per-unit (long-lived)
 
 - `specs/units/<u>/stories.md` — append-only mostly; `Status:` flips inline.
-  - When > 500 lines → `/ad-organize` splits into `story-NNN.md` files; `stories.md` becomes an index.
+  - When > 500 lines → `/sf-organize` splits into `story-NNN.md` files; `stories.md` becomes an index.
 - `specs/units/<u>/decision-record.md` — append-only ADR log. New entries on top.
 - `specs/units/<u>/observability.md` — optional; created when a spec's "Logs for self-improvement" earns persistence.
 
@@ -22,13 +22,13 @@ This is the part that surprises people: **iteration specs are deleted on PR merg
 
 | Phase | File | State |
 |---|---|---|
-| `/ad-spec` | `specs/iterations/spec-YYYYMMDD-slug.md` | created with `status: drafted` |
+| `/sf-spec` | `specs/iterations/spec-YYYYMMDD-slug.md` | created with `status: drafted` |
 | user answers questions | same | `status: approved` |
-| `/ad-dev` | + `specs/iterations/spec-YYYYMMDD-slug/backend-summary.md` | spec `status: developing` |
-| `/ad-verify` | (acceptance test file added in project's test dir) | spec `status: verifying` |
-| `/ad-validate` | + `specs/iterations/spec-YYYYMMDD-slug/validation-report.md` | spec `status: validating` or `failed` |
-| `/ad-fix` | spec `attempts` incremented; possibly micro-edits to spec | re-route |
-| `/ad-pr` | **everything in `specs/iterations/spec-YYYYMMDD-slug*/` is deleted** | story `Status: done`; ADR appended |
+| `/sf-dev` | + `specs/iterations/spec-YYYYMMDD-slug/backend-summary.md` | spec `status: developing` |
+| `/sf-verify` | (acceptance test file added in project's test dir) | spec `status: verifying` |
+| `/sf-validate` | + `specs/iterations/spec-YYYYMMDD-slug/validation-report.md` | spec `status: validating` or `failed` |
+| `/sf-fix` | spec `attempts` incremented; possibly micro-edits to spec | re-route |
+| `/sf-pr` | **everything in `specs/iterations/spec-YYYYMMDD-slug*/` is deleted** | story `Status: done`; ADR appended |
 
 The decisions, observations, and changes that mattered are preserved in:
 - The unit's `decision-record.md` (the why)
@@ -45,7 +45,7 @@ A `spec.md` that describes "what the system does today" has to be updated every 
 Instead:
 - Stable surface: `concept.md`, `arch.md`, `stories.md`, ADRs.
 - Volatile surface: code + tests (always true by definition).
-- On-demand digest: `/ad-summary <unit>` regenerates a current-state view from the above, never persisted.
+- On-demand digest: `/sf-summary <unit>` regenerates a current-state view from the above, never persisted.
 
 This is the plugin's most important opinion. Don't introduce a `spec.md` "just for reference"; it will rot within weeks.
 

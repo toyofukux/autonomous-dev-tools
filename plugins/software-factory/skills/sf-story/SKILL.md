@@ -1,11 +1,11 @@
 ---
-name: ad-story
+name: sf-story
 description: Turn a rough feature description into a real user story with AC and open questions, then append it to the right unit's stories.md after user approval. Runs codebase-researcher first, then story-writer.
 allowed-tools: Read, Write, Bash, Grep, Glob
 arguments: feature
 ---
 
-# /ad-story $feature
+# /sf-story $feature
 
 Draft a user story for "$feature" and add it to `stories.md` after approval. This is the **first human checkpoint** of the software-factory.
 
@@ -13,21 +13,21 @@ Draft a user story for "$feature" and add it to `stories.md` after approval. Thi
 
 1. **Run `codebase-researcher`** on $feature. Capture its full output.
 2. **Pick the target unit**:
-   - If `specs/units/` doesn't exist (project hasn't been organized yet), use a default file `specs/stories.md` (root-level). Mention `/ad-organize` for later.
+   - If `specs/units/` doesn't exist (project hasn't been organized yet), use a default file `specs/stories.md` (root-level). Mention `/sf-organize` for later.
    - If `specs/units/` exists, propose the unit based on the researcher's findings and ask the user to confirm or override (single-keystroke confirm).
 3. **Run `story-writer`** with: the user's $feature description, the researcher's findings, and (if found) the target unit's existing `stories.md` content for the consistency check.
 4. **Receive the story block** from story-writer, plus any consistency-check notes (duplicates, conflicts).
 5. **Present to the user** for approval:
    - The story block as-is (with `{{ID}}` placeholder)
    - Any consistency-check notes from story-writer (resolve before writing)
-   - The open questions — these must be answered before [[ad-spec]] can run; surface this explicitly
+   - The open questions — these must be answered before [[sf-spec]] can run; surface this explicitly
 6. **Assign a new story ID** (next available `ST-NNN` in the target file).
-7. **Append to `stories.md`** (or split file if it crosses 500 lines — see [[ad-organize]] for split rules).
+7. **Append to `stories.md`** (or split file if it crosses 500 lines — see [[sf-organize]] for split rules).
 8. **Report**:
    - The assigned ID
    - The file path it was written to
    - The list of open questions the user still owes answers to
-   - The next command: `/ad-spec ST-NNN` (once questions are answered)
+   - The next command: `/sf-spec ST-NNN` (once questions are answered)
 
 ## Discipline
 

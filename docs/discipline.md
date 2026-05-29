@@ -17,7 +17,7 @@ A clean session with the right mental model beats a patched session every time. 
 The article specifies three: story, brief, PR. Adding more produces friction; removing any produces silent compounding errors.
 
 - Don't auto-approve. Even if you're tired. Especially if you're tired.
-- Don't merge skills (e.g., "let `/ad-spec` also do the build") to skip a checkpoint. The checkpoint is the whole point.
+- Don't merge skills (e.g., "let `/sf-spec` also do the build") to skip a checkpoint. The checkpoint is the whole point.
 
 ## Discipline #3: validator is the truth
 
@@ -56,7 +56,7 @@ The validator surfaces "CLAUDE.md additions suggested" when it spots patterns. T
 
 ## Discipline #6: one feature per iteration
 
-`/ad-loop` runs **one** feature. If you find yourself wanting to bundle two unrelated features into one iteration to save time, don't.
+`/sf-loop` runs **one** feature. If you find yourself wanting to bundle two unrelated features into one iteration to save time, don't.
 
 - Two features = two specs = two PRs = two clean reverts if needed.
 - Bundling makes validator findings ambiguous (whose AC failed? whose impl drifted?).

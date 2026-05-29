@@ -1,17 +1,17 @@
 ---
-name: ad-guideline
+name: sf-guideline
 description: Add a bundled guideline (security, performance, testing, observability, api, db, ui, ux, interaction, code-style, git) to the project's specs/guidelines/. Use `list` to see what's available; `import <url>` is reserved for future use.
 allowed-tools: Read, Write, Bash, Grep, Glob
 arguments: name
 ---
 
-# /ad-guideline $name
+# /sf-guideline $name
 
 Copy a bundled guideline into `specs/guidelines/$name.md`. Opt-in; nothing is pre-installed.
 
 ## Available guidelines
 
-Run `/ad-guideline list` to see the current bundle. As of this release:
+Run `/sf-guideline list` to see the current bundle. As of this release:
 
 - `security` — auth, tenant isolation, secrets, input validation, OWASP highlights
 - `performance` — complexity budgets, query plans, payload size, caching
@@ -41,4 +41,4 @@ Run `/ad-guideline list` to see the current bundle. As of this release:
 
 ## Suggesting additions
 
-[[ad-validate]] and [[ad-pr]] surface "Suggested guideline additions" when the validator finds repeated patterns. Encourage the user to invoke `/ad-guideline $name` based on those suggestions.
+[[sf-validate]] and [[sf-pr]] surface "Suggested guideline additions" when the validator finds repeated patterns. Encourage the user to invoke `/sf-guideline $name` based on those suggestions.
